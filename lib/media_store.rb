@@ -6,6 +6,7 @@ require 'carrierwave/orm/activerecord'
 require 'inherited_resources'
 require 'has_scope'
 require 'cancan'
+require 'haml'
 
 require 'media_store/engine'
 

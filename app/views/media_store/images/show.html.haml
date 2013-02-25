@@ -1,0 +1,14 @@
+%article{ class: html_class_for(resource) }
+	%figure.preview
+		= image_tag resource.data.preview.url
+
+		%figcaption
+			= render 'caption'
+
+	%header
+		%p.number
+			= human_name resource
+		%h1
+			= resource.title
+
+	= render 'description'

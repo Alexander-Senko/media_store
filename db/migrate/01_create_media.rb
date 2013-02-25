@@ -5,6 +5,8 @@ class CreateMedia < ActiveRecord::Migration
 			t.string :filename
 			t.text   :metadata
 
+			t.string :title
+
 			t.timestamps
 		end
 	end
