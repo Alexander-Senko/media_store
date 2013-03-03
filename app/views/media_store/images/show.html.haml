@@ -1,6 +1,6 @@
 %article{ class: html_class_for(resource) }
 	%figure.preview
-		= image_tag resource.data.preview.url
+		= image_tag resource.data.preview.url, alt: resource.title
 
 		%figcaption
 			= render 'caption'
