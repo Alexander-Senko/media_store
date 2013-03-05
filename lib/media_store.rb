@@ -7,6 +7,7 @@ require 'inherited_resources'
 require 'has_scope'
 require 'cancan'
 require 'haml'
+require 'shared_form-rails'
 
 require 'media_store/engine'
 

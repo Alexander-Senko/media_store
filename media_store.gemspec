@@ -16,13 +16,13 @@ Gem::Specification.new do |s|
 	s.files = Dir['{app,config,db,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
 	s.add_dependency 'rails', '~> 3.2'
-	s.add_dependency 'prototype-rails'
 	s.add_dependency 'carrierwave'
 	s.add_dependency 'rmagick'
 	s.add_dependency 'inherited_resources'
 	s.add_dependency 'kaminari'
 	s.add_dependency 'cancan'
 	s.add_dependency 'haml'
+	s.add_dependency 'shared_form-rails'
 
 	s.add_development_dependency 'sqlite3'
 end

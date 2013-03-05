@@ -1,0 +1,7 @@
+- unless request.xhr? # TODO: don't use request
+	%nav{ class: action_name }
+		%ul.thumbnails
+			= render resource if resource.persisted?
+
+= shared_form_for resource do |form|
+	= render 'form', form: form

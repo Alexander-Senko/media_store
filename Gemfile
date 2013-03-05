@@ -15,3 +15,5 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem 'shared_form-rails', git: 'https://github.com/softpro/shared_form-rails.git'
