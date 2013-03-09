@@ -1,2 +1,7 @@
--# Override this in your app.
--# TODO: default form
+- multilingual do
+	= form.simple_fields_for :descriptions, resource.description  do |description_form|
+		- for attribute in Description.editable_attributes do
+			= description_form.input attribute
+
+		- for attribute in Description.hidden_attributes do
+			= description_form.input attribute, as: :hidden
