@@ -1,6 +1,8 @@
+-#TODO: reuse "edit" template
+
 - unless request.xhr? # TODO: don't use request
 	= render layout: 'thumbnails' do
-		= render resource
+		-# Drop zone
 
 = shared_form_for resource do |form|
 	= render 'form', form: form
