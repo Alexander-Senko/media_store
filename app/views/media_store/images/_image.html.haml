@@ -1,9 +1,9 @@
-%li#thumbnail{ id: image.id, class: html_class_for(image) }
+%li#thumbnail{ id: image.id, class: image.html_class }
 	%figure.thumbnail
-		= link_to image_tag(image.data.thumbnail.url, alt: human_name(image)), url_for(image)
+		= link_to image_tag(image.data.thumbnail.url, alt: image.human_name), url_for(image)
 
 		%figcaption.number
-			= human_id image
+			= image.human_id
 
 	%figure.preview
 		= image_tag image.data.preview.url, alt: image.title

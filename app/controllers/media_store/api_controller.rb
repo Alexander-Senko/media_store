@@ -22,16 +22,20 @@ module MediaStore
 
 		protected
 
-		def collection
-			get_collection_ivar || set_collection_ivar(
-				end_of_association_chain.accessible_by(
-					current_ability, action_name
-				)
+		def resource
+			get_resource_ivar || set_resource_ivar(
+				super.decorate
 			)
 		end
 
-		def end_of_association_chain
-			apply_scopes super
+		def collection
+			set_collection_ivar( # TODO: memoize
+				apply_scopes(
+					end_of_association_chain.accessible_by(
+						current_ability, action_name
+					)
+				).decorate
+			)
 		end
 	end
 end

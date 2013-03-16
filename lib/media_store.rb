@@ -8,6 +8,7 @@ require 'has_scope'
 require 'cancan'
 require 'haml'
 require 'shared_form-rails'
+require 'draper'
 
 require 'media_store/engine'
 

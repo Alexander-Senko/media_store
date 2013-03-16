@@ -1,4 +1,4 @@
-%article{ class: html_class_for(resource) }
+%article{ class: resource.html_class }
 	%figure.preview
 		= image_tag resource.data.preview.url, alt: resource.title
 
@@ -7,7 +7,7 @@
 
 	%header
 		%p.number
-			= human_name resource
+			= resource.human_name
 		%h1
 			= resource.title
 
