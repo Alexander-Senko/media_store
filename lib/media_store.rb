@@ -15,4 +15,8 @@ require 'media_store/engine'
 module MediaStore
 	autoload :Storage,   'media_store/storage'
 	autoload :Watermark, 'media_store/watermark'
+
+	def self.i18n_scope
+		name.underscore.to_sym
+	end
 end

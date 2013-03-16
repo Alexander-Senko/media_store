@@ -2,6 +2,10 @@ module MediaStore
 	class ModelDecorator < Draper::Decorator
 		delegate_all
 
+		class_attribute :actions
+
+		self.actions = [ :show, :edit, :destroy ]
+
 		def html_class
 			[
 				self.class.model_name.element,
@@ -14,6 +18,11 @@ module MediaStore
 
 		def human_id
 			"#{model.class.human_attribute_name :id}#{model.id}"
+		end
+
+		def actions
+			ActionsDecorator.new(self.class.actions).
+				for self
 		end
 	end
 end

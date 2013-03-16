@@ -1,0 +1,13 @@
+en:
+  actions:
+    new:     'create new'
+    show:    'show'
+    edit:    'edit'
+    destroy: 'delete'
+
+  media_store:
+    actions:
+      medium:
+        new: 'upload'
+
+    confirm: "Are you sure you want to %{action} %{subject}?"
