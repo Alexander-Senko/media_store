@@ -1,6 +1,12 @@
 MediaStore::Engine.routes.draw do
-	resources :media
-	resources :images
+	concern :media do
+		resources :images
+		resources :media, path: '/'
+	end
 
-	root :to => 'media#index'
+	concerns :media
+
+	resources :lists, concerns: :media do
+		resources :lists
+	end
 end
