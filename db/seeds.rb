@@ -9,11 +9,22 @@ for (source, target), roles in {
 	# Entity relations
 	[ Medium, Description ] => %w[
 	],
-	[ Medium, List ] => %w[
+	[ Medium, List        ] => %w[
 	],
-	[ List, Description ] => %w[
+	[ List,   Description ] => %w[
 	],
-	[ List, List ] => %w[
+	[ List,   List        ] => %w[
+	],
+
+	# User roles: specific
+	[ User, Medium      ] => %w[
+		creator
+		editor
+		author
+	],
+	[ User, Description ] => %w[
+		creator
+		editor
 	],
 } do
 	Relation.seed source, target, roles

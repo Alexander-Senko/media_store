@@ -9,6 +9,10 @@ module MediaStore
 			g.test_framework    nil
 		end
 
+		config.active_record.observers = [
+			:'media_store/credits_observer',
+		]
+
 
 		def self.mounted_at
 			Rails.application.routes.routes.find do |route|
