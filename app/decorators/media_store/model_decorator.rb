@@ -1,6 +1,7 @@
 module MediaStore
 	class ModelDecorator < Draper::Decorator
 		delegate_all
+		delegate :as_json
 
 		class_attribute :actions
 
