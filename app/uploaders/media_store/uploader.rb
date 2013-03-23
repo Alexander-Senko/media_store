@@ -2,10 +2,6 @@ module MediaStore
 	class Uploader < CarrierWave::Uploader::Base
 		include CarrierWave::RMagick
 
-		# Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-		include Sprockets::Helpers::RailsHelper
-		include Sprockets::Helpers::IsolatedHelper
-
 		include Storage
 		include Watermark
 

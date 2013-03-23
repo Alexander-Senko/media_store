@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
 
 	s.files = Dir['{app,config,db,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
-	s.add_dependency 'rails', '~> 3.2'
+	s.add_dependency 'rails', '~> 4.0.0.beta'
+	s.add_dependency 'rails-observers'
 	s.add_dependency 'carrierwave'
 	s.add_dependency 'rmagick'
 	s.add_dependency 'inherited_resources'

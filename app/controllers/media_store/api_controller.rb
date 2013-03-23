@@ -51,5 +51,16 @@ module MediaStore
 				).decorate
 			)
 		end
+
+		private
+
+		def resource_params
+			params, options = super # in InheritedResources::BaseHelpers
+
+			[
+				ActionController::Parameters.new(params).
+					permit(permitted_resource_params)
+			]
+		end
 	end
 end
