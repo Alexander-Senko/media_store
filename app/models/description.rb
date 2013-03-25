@@ -6,8 +6,4 @@ class Description < ActiveRecord::Base
 	def self.editable_attributes
 		[ :title, :abstract, :body ]
 	end
-
-	def self.hidden_attributes
-		[ :lang ]
-	end
 end
