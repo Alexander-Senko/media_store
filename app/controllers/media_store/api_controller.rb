@@ -6,6 +6,17 @@ module MediaStore
 
 		respond_to :html, :xml, :json
 
+		self.responder = Class.new(self.responder) do
+			# This is the common behavior for formats associated with APIs, such as :xml and :json.
+			def api_behavior error
+				if put? or patch? then
+					display resource
+				else
+					super
+				end
+			end
+		end
+
 		load_and_authorize_resource
 
 		# Pagination
