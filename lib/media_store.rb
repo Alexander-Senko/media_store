@@ -1,5 +1,6 @@
 require 'rails'
 require 'active_record'
+require 'rails-observers'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'inherited_resources'
