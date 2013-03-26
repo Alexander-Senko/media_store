@@ -18,5 +18,3 @@ gemspec
 
 gem 'current_user_model', github: 'softpro/current_user_model'
 gem 'shared_form-rails',  github: 'softpro/shared_form-rails'
-
-gem 'stub',               github: 'softpro/stub'
