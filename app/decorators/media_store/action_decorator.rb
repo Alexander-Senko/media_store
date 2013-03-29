@@ -2,6 +2,7 @@ module MediaStore
 	class ActionDecorator < Draper::Decorator
 		delegate_all
 		delegate :to_s
+		delegate :object, to: :context
 
 		def html_class
 			[
@@ -15,7 +16,7 @@ module MediaStore
 		end
 
 		def human_name
-			defaults = (Class === context ? context : context.class).
+			defaults = (Class === object ? object : object.class).
 				lookup_ancestors.map do |model|
 					:"#{i18n_scope}.#{model.model_name.i18n_key}.#{source}"
 				end
@@ -27,7 +28,7 @@ module MediaStore
 
 		def path
 			MediaStore::Engine.recognize_path(
-				h.polymorphic_path context
+				h.polymorphic_path object
 			).merge action: source
 		end
 
@@ -36,7 +37,7 @@ module MediaStore
 			when :destroy
 				{ method: :delete, data: {
 					confirm: h.t('media_store.confirm',
-						action: human_name, subject: context.human_name
+						action: human_name, subject: object.human_name
 					),
 				} }
 			else
