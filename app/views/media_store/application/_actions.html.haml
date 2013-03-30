@@ -1,4 +1,4 @@
-%menu
+%menu(type="toolbar"){ class: actions.html_class }
 	- for action in actions do
 		%li{ class: action.html_class }
 			= link_to_unless action.current?, action.human_name, action.path, action.options

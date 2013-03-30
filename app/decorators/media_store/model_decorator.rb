@@ -3,10 +3,20 @@ module MediaStore
 		delegate_all
 		delegate :as_json
 
-		class_attribute :actions, :flags
+		class_attribute :actions, :bulk_actions, :flags
 
 		self.actions = [ :show, :edit, :destroy ]
 		self.flags   = [ :selectable ]
+
+		def self.inherited subclass
+			subclass.bulk_actions = subclass.actions -
+				[ :show ]
+		end
+
+
+		def self.human_name
+			source_class.model_name.human count: -1 # plural
+		end
 
 		def html_class
 			[
@@ -23,8 +33,7 @@ module MediaStore
 		end
 
 		def actions
-			ActionsDecorator.new(self.class.actions).
-				for self
+			decorate_actions self.class.actions
 		end
 
 		def flags
@@ -37,6 +46,14 @@ module MediaStore
 			self.class.bulk_actions.select { |action|
 				h.can? action, model
 			}.any?
+		end
+
+		private
+
+		def decorate_actions actions, options = {}
+			ActionsDecorator.new(actions,
+				{ context: source }.merge(options)
+			).for self
 		end
 	end
 end

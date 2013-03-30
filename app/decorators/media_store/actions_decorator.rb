@@ -21,6 +21,12 @@ module MediaStore
 			end
 		end
 
+		def html_class
+			[
+				context.respond_to?(:each) && 'bulk',
+			]
+		end
+
 		def to_partial_path
 			'actions'
 		end
