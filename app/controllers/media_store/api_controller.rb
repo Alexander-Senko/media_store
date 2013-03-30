@@ -11,6 +11,7 @@ module MediaStore
 			def api_behavior error
 				if put? or patch? then
 					display resource
+						.reload.decorate # TODO: remove
 				else
 					super
 				end
