@@ -1,7 +1,12 @@
 MediaStore::Engine.routes.draw do
+	concern :bulk_actions do
+		get    ':action', on: :collection, action: /[a-z_]+/
+		delete ':action', on: :collection, action: /[a-z_]+/
+	end
+
 	concern :media do
-		resources :images
-		resources :media, path: '/'
+		resources :images, concerns: :bulk_actions
+		resources :media,  concerns: :bulk_actions, path: '/'
 	end
 
 	concerns :media
