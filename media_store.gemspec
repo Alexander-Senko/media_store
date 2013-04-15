@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 	s.add_dependency 'cancan'
 	s.add_dependency 'haml'
 	s.add_dependency 'shared_form-rails'
-	s.add_dependency 'draper'
+	s.add_dependency 'draper', '~> 1.1.0'
 
 	s.add_development_dependency 'sqlite3'
 end
