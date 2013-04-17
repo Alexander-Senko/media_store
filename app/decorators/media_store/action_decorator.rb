@@ -6,6 +6,7 @@ module MediaStore
 
 		def html_class
 			[
+				:action,
 				source,
 				current? && 'current',
 			]
