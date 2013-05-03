@@ -9,6 +9,8 @@ module Description::Describable
 				where descriptions: { id: Description.in_language(lang) } # TODO: simplify
 		}
 
+		delegate :title, :abstract, :body, to: :description # TODO: DRY! use Description.editable_attributes
+
 		for lang in I18n.available_locales do
 			-> (lang) {
 				has_one :"description_#{lang}_relation", -> { where(

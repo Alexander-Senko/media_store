@@ -4,9 +4,17 @@ class MediumDecorator < MediaStore::ModelDecorator
 			File.basename(filename, File.extname(filename)).humanize
 	end
 
-	alias_method :title,    :name
-	alias_method :headline, :name
-	alias_method :caption,  :name
+	for method_name in Description.editable_attributes do
+		-> (method_name) {
+			define_method method_name do
+				model.send method_name or
+					name
+			end
+		}.(method_name)
+	end
+
+	alias_method :headline, :title
+	alias_method :caption,  :abstract
 
 	def as_json options = {}
 		model.as_json({
