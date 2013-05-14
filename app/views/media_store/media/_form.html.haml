@@ -1,4 +1,4 @@
 - multilingual do
 	= form.simple_fields_for :"description_#{I18n.locale}", form.object.description do |description_form|
-		- for attribute in Description.editable_attributes do
+		- for attribute in TranslatableDescriptions.editable_attributes do
 			= description_form.input attribute

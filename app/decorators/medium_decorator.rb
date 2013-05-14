@@ -4,7 +4,7 @@ class MediumDecorator < MediaStore::ModelDecorator
 			File.basename(filename, File.extname(filename)).humanize
 	end
 
-	for method_name in Description.editable_attributes do
+	for method_name in TranslatableDescriptions.editable_attributes do
 		-> (method_name) {
 			define_method method_name do
 				model.send method_name or

@@ -16,5 +16,6 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem 'current_user_model', github: 'softpro/current_user_model'
-gem 'shared_form-rails',  github: 'softpro/shared_form-rails'
+gem 'current_user_model',        github: 'softpro/current_user_model'
+gem 'shared_form-rails',         github: 'softpro/shared_form-rails'
+gem 'translatable_descriptions', github: 'softpro/translatable_descriptions'

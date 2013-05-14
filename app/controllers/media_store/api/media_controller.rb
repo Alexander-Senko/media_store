@@ -11,9 +11,8 @@ module MediaStore::API
 				:data,
 
 				I18n.available_locales.each_with_object({}) { |lang, hash|
-					hash[:"description_#{lang}_attributes"] = [
-						:id, :title, :abstract, :body
-					]
+					hash[:"description_#{lang}_attributes"] = [ :id ] +
+						TranslatableDescriptions.editable_attributes
 				}
 			]
 		end
